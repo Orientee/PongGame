@@ -8,8 +8,10 @@ public class Paddle : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Vector3 startPosition;
+    public Vector2 mousePos;
 
     private float movement;
+    private float posX, posY;
 
     void Start()
     {
@@ -18,12 +20,33 @@ public class Paddle : MonoBehaviour
 
     void Update()
     {
-        if (isPlayer1)
-            movement = Input.GetAxisRaw("Vertical");
-        else
-            movement = Input.GetAxisRaw("Vertical2");
 
-        rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+        //if (isPlayer1)
+        //    movement = Input.GetAxisRaw("Vertical");
+        //else
+        //    movement = Input.GetAxisRaw("Vertical2");
+
+        //rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+    }
+
+    private void OnMouseDown()
+    {
+        posX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
+        posY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+    }
+
+    private void OnMouseDrag()
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (isPlayer1)
+            transform.position = new Vector2(-8, mousePos.y - posY);
+        else
+            transform.position = new Vector2(8, mousePos.y - posY);
+    }
+
+    private void OnMouseUp()
+    {
+
     }
 
     public void Reset()
