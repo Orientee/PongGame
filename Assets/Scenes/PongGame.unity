@@ -389,6 +389,7 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 728174686}
   startPosition: {x: 0, y: 0, z: 0}
+  mousePos: {x: 0, y: 0}
 --- !u!1 &1146576197
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1249930530
 MonoBehaviour:
@@ -702,6 +703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 0
+  Points1: {fileID: 1742720420}
+  Points2: {fileID: 1779303492}
 --- !u!1 &1305792380
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +717,7 @@ GameObject:
   - component: {fileID: 1305792384}
   - component: {fileID: 1305792383}
   - component: {fileID: 1305792382}
+  - component: {fileID: 1305792385}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -802,6 +806,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1305792385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305792380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c4a1d101c8579409e57abae42f2151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points1: {fileID: 1742720420}
+  Points2: {fileID: 1779303492}
+  isPlayer1Goal: 0
 --- !u!1 &1456817282
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,16 +955,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492507144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2a8cdf1d1136549948cc99d3ca81ed, type: 3}
+  m_Script: {fileID: 11500000, guid: e8ee0ef3c0589574c93b38f6a9cf23fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1749153569}
   player1Paddle: {fileID: 728174685}
-  player1Goal: {fileID: 1808229581}
   player2Paddle: {fileID: 1789182259}
-  player2Goal: {fileID: 1249930526}
-  Player1Text: {fileID: 1742720418}
-  Player2Text: {fileID: 1779303491}
 --- !u!4 &1492507146
 Transform:
   m_ObjectHideFlags: 0
@@ -1236,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e78637e9c6e22e4e9c514dd6c5f8b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   rb: {fileID: 1749153570}
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1779303491
@@ -1501,7 +1516,7 @@ Transform:
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1789182264
 MonoBehaviour:
@@ -1519,6 +1534,7 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 1789182260}
   startPosition: {x: 0, y: 0, z: 0}
+  mousePos: {x: 0, y: 0}
 --- !u!1 &1808229581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1808229585
 MonoBehaviour:
@@ -1641,6 +1657,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 1
+  Points1: {fileID: 1742720420}
+  Points2: {fileID: 1779303492}
 --- !u!1 &1976848681
 GameObject:
   m_ObjectHideFlags: 0

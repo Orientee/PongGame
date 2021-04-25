@@ -20,22 +20,41 @@ public class Paddle : MonoBehaviour
 
     void Update()
     {
-
-        //if (isPlayer1)
-        //    movement = Input.GetAxisRaw("Vertical");
-        //else
-        //    movement = Input.GetAxisRaw("Vertical2");
-
-        //rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+        UpdateTouch();
     }
 
-    private void OnMouseDown()
+    private void UpdateTouch()
+    {
+        if (Input.touchCount <= 0)
+            return;
+
+        switch (Input.touches[0].phase)
+        {
+            case TouchPhase.Began:
+                {
+                    OnTouchDown();
+                }
+                break;
+            case TouchPhase.Moved:
+                {
+                    OnTouchDrag();
+                }
+                break;
+            case TouchPhase.Ended:
+                {
+                    OnTouchUp();
+                }
+                break;
+        }
+    }
+
+    private void OnTouchDown()
     {
         posX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         posY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
     }
 
-    private void OnMouseDrag()
+    private void OnTouchDrag()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (isPlayer1)
@@ -44,10 +63,7 @@ public class Paddle : MonoBehaviour
             transform.position = new Vector2(8, mousePos.y - posY);
     }
 
-    private void OnMouseUp()
-    {
-
-    }
+    private void OnTouchUp() { }
 
     public void Reset()
     {

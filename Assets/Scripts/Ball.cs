@@ -27,8 +27,4 @@ public class Ball : MonoBehaviour
         transform.position = startPosition;
         Launch();
     }
-    void Update()
-    {
-        
-    }
 }
